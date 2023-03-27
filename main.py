@@ -2,7 +2,7 @@ import re
 
 # Abrir o arquivo SQL em modo leitura
 # O encoding pode variar de acordo com o arquivo
-with open('C:/Users/Matheus/Downloads/original.sql', 'r', encoding='iso-8859-1') as f:
+with open('DIRETÓRIO-ARQUIV-ATUAL', 'r', encoding='iso-8859-1') as f:
     sql = f.read()
 
     # Expressão regular para encontrar datas no formato m/d/yyyy ou mm/dd/yyyy
@@ -12,6 +12,6 @@ with open('C:/Users/Matheus/Downloads/original.sql', 'r', encoding='iso-8859-1')
     sql = re.sub(pattern, lambda match: f"'{match.group(3)}-{match.group(1).zfill(2)}-{match.group(2).zfill(2)}'", sql)
 
 # Abrir o novo arquivo SQL em modo escrita
-with open('C:/Users/Matheus/Downloads/novo.sql', 'w', encoding='utf-8') as f:
+with open('DIRETÓRIO-NOVO-ARQUIVO', 'w', encoding='utf-8') as f:
     # Escrever o SQL atualizado no arquivo novo.sql
     f.write(sql)
